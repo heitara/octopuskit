@@ -23,7 +23,7 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
         // .package(url: "https://github.com/InvadingOctopus/octopuscore.git", from: "1.0.0")
-        .package(path: "../OctopusCore")
+        .package(name: "OctopusCore", path: "../octopuscore")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.

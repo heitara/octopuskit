@@ -189,7 +189,7 @@ open class OKScene: SKScene,
     public var octopusSceneDelegate: OKSceneDelegate? {
         didSet {
             // Cannot use `@LogChanges` because "Protocol type 'OKSceneDelegate' cannot conform to 'Equatable' because only concrete types can conform to protocols"
-            OKLog.debug.debug("\(📜("\(oldValue) → \(octopusSceneDelegate)"))")
+            OKLog.debug.debug("\(📜("\(oldValue) → \(self.octopusSceneDelegate)"))")
         }
     }
     
@@ -357,7 +357,7 @@ open class OKScene: SKScene,
     /// Calls `createContents()` which may be used by a subclass to create the scene's contents, then adds all components from each entity in the `entities` set to the relevant systems in the `componentSystems` array. If overridden then `super` must be called for proper initialization of the scene.
     open override func didMove(to: SKView) {
         // CHECK: Should this be moved to `sceneDidLoad()`?
-        OKLog.framework.debug("\(📜("name = \"\(name ?? "")\", size = \(size), view.frame.size = \(to.frame.size), scaleMode = \(scaleMode.rawValue)"))")
+        OKLog.framework.debug("\(📜("name = \"\(self.name ?? "")\", size = \(self.size), view.frame.size = \(to.frame.size), scaleMode = \(self.scaleMode.rawValue)"))")
         
         secondsElapsedSinceMovedToView = 0
         
@@ -500,8 +500,8 @@ open class OKScene: SKScene,
         {
             if  pausedAtTime == nil {
                 pausedAtTime = currentTime
-                
-                OKLog.framework.debug("\(📜("pausedAtTime = \(pausedAtTime!), isPaused = \(isPaused), isPausedBySystem = \(isPausedBySystem), isPausedByPlayer = \(isPausedByPlayer), isPausedBySubscene = \(isPausedBySubscene)"))")
+
+                OKLog.framework.debug("\(📜("pausedAtTime = \(self.pausedAtTime!), isPaused = \(self.isPaused), isPausedBySystem = \(self.isPausedBySystem), isPausedByPlayer = \(self.isPausedByPlayer), isPausedBySubscene = \(self.isPausedBySubscene)"))")
             }
             
             return
@@ -652,7 +652,7 @@ open class OKScene: SKScene,
     open func applicationDidBecomeActive() {
         // NOTE: This method gets superfluously called twice after `OSAppDelegate.applicationWillEnterForeground(_:)` because of `OKScene.applicationWillEnterForeground()` and `OSAppDelegate.applicationDidBecomeActive(_:)`.
         
-        OKLog.framework.debug("\(📜("isPausedBySystem = \(isPausedBySystem)\(isPausedBySystem ? " → false" : "")"))")
+        OKLog.framework.debug("\(📜("isPausedBySystem = \(self.isPausedBySystem)\(self.isPausedBySystem ? " → false" : "")"))")
         
         if  isPausedBySystem {
             isPaused = false
@@ -667,7 +667,7 @@ open class OKScene: SKScene,
     
     /// Called by `OSAppDelegate.applicationWillResignActive(_:)` when the player switches out of the app, or on interruptions such as a phone call, Control Center, Notification Center, or other system alerts.
     open func applicationWillResignActive() {
-        OKLog.framework.debug("\(📜("isPausedBySystem = \(isPausedBySystem)\(isPausedBySystem ? "" : " → true")"))")
+        OKLog.framework.debug("\(📜("isPausedBySystem = \(self.isPausedBySystem)\(self.isPausedBySystem ? "" : " → true")"))")
         
         pausedAtTime = lastUpdateTime // CHECK: Should we rely on the stored value instead of getting current time? Probably yes.
         isPausedBySystem = true
@@ -712,7 +712,7 @@ open class OKScene: SKScene,
     ///
     /// When paused by the player, the gameplay and other game-specific logic is put on hold without preventing the scene from processing frame updates so the visual effects for a paused state can be shown and animated etc.
     open func togglePauseByPlayer() {
-        OKLog.framework.debug("\(📜("isPausedByPlayer = \(isPausedByPlayer) → \(!isPausedByPlayer)"))")
+        OKLog.framework.debug("\(📜("isPausedByPlayer = \(self.isPausedByPlayer) → \(!self.isPausedByPlayer)"))")
         
         isPausedByPlayer = !isPausedByPlayer
         
@@ -748,7 +748,7 @@ open class OKScene: SKScene,
     ///
     /// - NOTE: Set the scene's `physicsWorld.speed` to `0` or `1` in your implementation to pause and unpause physics if needed.
     open func togglePauseBySubscene() {
-        OKLog.framework.debug("\(📜("isPausedBySubscene = \(isPausedBySubscene) → (!isPausedBySubscene)"))")
+        OKLog.framework.debug("\(📜("isPausedBySubscene = \(self.isPausedBySubscene) → (!isPausedBySubscene)"))")
         
         isPausedBySubscene = !isPausedBySubscene
         
@@ -897,7 +897,7 @@ open class OKScene: SKScene,
     // MARK: - Deinitialization
     
     deinit {
-        OKLog.deinits.debug("\(📜("\"\(self.name)\" secondsElapsedSinceMovedToView = \(secondsElapsedSinceMovedToView), lastUpdateTime = \(lastUpdateTime)"))")
+        OKLog.deinits.debug("\(📜("\"\(self.name)\" secondsElapsedSinceMovedToView = \(self.secondsElapsedSinceMovedToView), lastUpdateTime = \(self.lastUpdateTime)"))")
     }
     
 }

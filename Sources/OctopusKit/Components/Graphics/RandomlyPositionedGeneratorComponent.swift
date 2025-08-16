@@ -82,7 +82,7 @@ public final class RandomlyPositionedGeneratorComponent: NodeAttachmentComponent
         // TODO: Fix anchorPoint positioning etc.
         
         guard self.numberOfNodes > 0 else {
-            OKLog.warnings.debug("\(📜("numberOfNodes \(numberOfNodes) < 1"))")
+            OKLog.warnings.debug("\(📜("numberOfNodes \(self.numberOfNodes) < 1"))")
             return nil
         }
         
@@ -91,8 +91,8 @@ public final class RandomlyPositionedGeneratorComponent: NodeAttachmentComponent
             return nil
         }
         
-        if numberOfNodes > numberOfNodesWarningThreshold {
-            OKLog.warnings.debug("\(📜("numberOfNodes \(numberOfNodes) > numberOfNodesWarningThreshold \(numberOfNodesWarningThreshold) — Potential performance degradation"))")
+        if self.numberOfNodes > self.numberOfNodesWarningThreshold {
+            OKLog.warnings.debug("\(📜("numberOfNodes \(self.numberOfNodes) > numberOfNodesWarningThreshold \(self.numberOfNodesWarningThreshold) — Potential performance degradation"))")
         }
         
         let newContents = SKNode()
