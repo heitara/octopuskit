@@ -185,8 +185,8 @@ public final class TouchEventComponent: OKComponent, RequiresUpdatesPerFrame {
         super.didAddToEntity()
         // Issue a warning for a common mistake: Adding an input event component to a child entity instead of the scene's entity.
         if  !(self.entity?.node is SKScene) {
-            OKLog.warnings.debug("\(📜("\(self) added to a child entity instead of the OKScene.entity: \(entity) — Events may not be received!"))")
-            OKLog.tips.debug("\(📜("Use RelayComponent(for:) to add a relay to the scene's sharedTouchEventComponent, or override the scene's input handling methods."))")
+//            OKLog.warnings.debug("\(📜("\(self) added to a child entity instead of the OKScene.entity: \(entity) — Events may not be received!"))")
+//            OKLog.tips.debug("\(📜("Use RelayComponent(for:) to add a relay to the scene's sharedTouchEventComponent, or override the scene's input handling methods."))")
         }
     }
 

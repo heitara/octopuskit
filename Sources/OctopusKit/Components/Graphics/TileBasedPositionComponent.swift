@@ -155,8 +155,7 @@ public final class TileBasedPositionComponent: OKComponent, RequiresUpdatesPerFr
             return nil
         }
         
-        return tileMapNode.centerOfTile(atColumn: column, row: row)
-            + self.offsetFromTileCenter
+        return tileMapNode.centerOfTile(atColumn: column, row: row) + self.offsetFromTileCenter
     }
     
     /// Sets the position of this entity's `NodeComponent` node to the center of the tile in the `tileMapComponent`'s `SKTileMapNode`.

@@ -28,6 +28,45 @@
 import SpriteKit
 import GameplayKit
 
+//public extension CGPoint {
+//    
+//    /// Adds two CGPoint values
+//    static func + (left: CGPoint, right: CGPoint) -> CGPoint {
+//        return CGPoint(x: left.x + right.x, y: left.y + right.y)
+//    }
+//    
+//    /// Subtracts two CGPoint values
+//    static func - (left: CGPoint, right: CGPoint) -> CGPoint {
+//        return CGPoint(x: left.x - right.x, y: left.y - right.y)
+//    }
+//    
+//    /// Adds a CGPoint value to the current point
+//    static func += (left: inout CGPoint, right: CGPoint) {
+//        left = left + right
+//    }
+//    
+//    /// Subtracts a CGPoint value from the current point
+//    static func -= (left: inout CGPoint, right: CGPoint) {
+//        left = left - right
+//    }
+//    
+//    /// Multiplies a CGPoint by a scalar value
+//    static func * (point: CGPoint, scalar: CGFloat) -> CGPoint {
+//        return CGPoint(x: point.x * scalar, y: point.y * scalar)
+//    }
+//    
+//    /// Multiplies a CGPoint by a scalar value (commutative)
+//    static func * (scalar: CGFloat, point: CGPoint) -> CGPoint {
+//        return point * scalar
+//    }
+//    
+//    /// Divides a CGPoint by a scalar value
+//    static func / (point: CGPoint, scalar: CGFloat) -> CGPoint {
+//        return CGPoint(x: point.x / scalar, y: point.y / scalar)
+//    }
+//}
+
+
 #if canImport(UIKit)
 
 /// Allows the player to drag the entity's `NodeComponent` node based on input from the entity's `NodeTouchStateComponent`.
@@ -58,8 +97,8 @@ public final class TouchControlledDraggingComponent: OKComponent, RequiresUpdate
         // A scene itself is not really draggable, so...
         
         if  node is SKScene {
-            OKLog.warnings.debug("\(📜("A TouchControlledDraggingComponent cannot be added to the scene entity — Removing."))")
-            OKLog.tips.debug("\(📜("See CameraPanComponent."))")
+//            OKLog.warnings.debug("\(📜("A TouchControlledDraggingComponent cannot be added to the scene entity — Removing."))")
+//            OKLog.tips.debug("\(📜("See CameraPanComponent."))")
             self.removeFromEntity()
         }
     }
